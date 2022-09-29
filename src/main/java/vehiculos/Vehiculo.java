@@ -1,6 +1,6 @@
 package vehiculos;
 
-class Vehiculo {
+public class Vehiculo {
 	protected String placa;
 	protected int puertas;
 	protected int velocidadMaxima;
@@ -10,6 +10,7 @@ class Vehiculo {
 	protected String traccion;
 	protected Fabricante fabricante;
 	private static int CantidadVehiculos = 0;
+	
 
 	public Vehiculo() {Vehiculo.CantidadVehiculos += 1;}
 

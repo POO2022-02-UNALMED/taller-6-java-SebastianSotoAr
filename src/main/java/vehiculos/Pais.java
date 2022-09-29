@@ -1,6 +1,6 @@
 package vehiculos;
 
-class Pais {
+public class Pais {
 	private String nombre;
 
 	public Pais() {}
