@@ -41,7 +41,7 @@ public class Fabricante {
 		}
 	}
 	
-	public static Pais paisMayorVentas() {
+	public static Pais paisMasVendedor() {
 		ArrayList<Integer> list1 = new ArrayList<Integer>(Fabricante.VehiculosPorPais.values());
 		ArrayList<Pais> list2 = new ArrayList<Pais>(Fabricante.VehiculosPorPais.keySet());
 		int max = 0;
