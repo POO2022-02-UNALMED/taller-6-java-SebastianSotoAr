@@ -13,7 +13,7 @@ public class Vehiculo {
 	protected String traccion;
 	protected Fabricante fabricante;
 	private static int CantidadVehiculos = 0;
-	private static HashMap<String, Integer> VehiculosPorFabrica = new HashMap<String, Integer>();
+	private static HashMap<Fabricante, Integer> VehiculosPorFabrica = new HashMap<Fabricante, Integer>();
 
 	public Vehiculo() {
 		Vehiculo.CantidadVehiculos += 1;
@@ -30,7 +30,7 @@ public class Vehiculo {
 		this.peso = peso;
 		this.traccion = traccion;
 		this.fabricante = fabricante;
-		Vehiculo.agregarFabrica(fabricante.getNombre());
+		Vehiculo.agregarFabrica(fabricante);
 	}
 
 	public String getPlaca() {
@@ -109,7 +109,7 @@ public class Vehiculo {
 		return "Automoviles: "+Automovil.getCantidad()+"\nCamionestas: "+Camioneta.getCantidad()+"\nCamiones: "+Camion.getCantidad();
 	}
 	
-	public static void agregarFabrica(String key) {
+	public static void agregarFabrica(Fabricante key) {
 		Integer num = Vehiculo.VehiculosPorFabrica.get(key);
 		if (num == null) {
 			Vehiculo.VehiculosPorFabrica.put(key, 1);
@@ -118,17 +118,17 @@ public class Vehiculo {
 		}
 	}
 	
-	public static String fabricaMayorVentas() {
+	public static Fabricante fabricaMayorVentas() {
 		ArrayList<Integer> list1 = new ArrayList<Integer>(Vehiculo.VehiculosPorFabrica.values());
-		ArrayList<String> list2 = new ArrayList<String>(Vehiculo.VehiculosPorFabrica.keySet());
+		ArrayList<Fabricante> list2 = new ArrayList<Fabricante>(Vehiculo.VehiculosPorFabrica.keySet());
 		int max = 0;
-		String nombreMax = "";
+		Fabricante fabricanteMax = null;
 		for (int i = 0; i < list2.size(); ++i) {
 			if (max < list1.get(i)) {
 				max = list1.get(i);
-				nombreMax = list2.get(i);
+				fabricanteMax = list2.get(i);
 			}
 		}
-		return nombreMax;
+		return fabricanteMax;
 	}	
 }

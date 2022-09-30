@@ -6,14 +6,14 @@ import java.util.HashMap;
 public class Fabricante {
 	private String nombre;
 	private Pais pais;
-	private static HashMap<String, Integer> VehiculosPorPais = new HashMap<String, Integer>();
+	private static HashMap<Pais, Integer> VehiculosPorPais = new HashMap<Pais, Integer>();
 
 	public Fabricante() {}
 
 	public Fabricante(String nombre, Pais pais) {
 		this.nombre = nombre;
 		this.pais = pais;
-		Fabricante.agregarPais(pais.getNombre());
+		Fabricante.agregarPais(pais);
 	}
 
 	public String getNombre() {
@@ -32,7 +32,7 @@ public class Fabricante {
 		this.pais = pais;
 	}
 	
-	public static void agregarPais(String key) {
+	public static void agregarPais(Pais key) {
 		Integer num = Fabricante.VehiculosPorPais.get(key);
 		if (num == null) {
 			Fabricante.VehiculosPorPais.put(key, 1);
@@ -41,21 +41,21 @@ public class Fabricante {
 		}
 	}
 	
-	public static String paisMayorVentas() {
+	public static Pais paisMayorVentas() {
 		ArrayList<Integer> list1 = new ArrayList<Integer>(Fabricante.VehiculosPorPais.values());
-		ArrayList<String> list2 = new ArrayList<String>(Fabricante.VehiculosPorPais.keySet());
+		ArrayList<Pais> list2 = new ArrayList<Pais>(Fabricante.VehiculosPorPais.keySet());
 		int max = 0;
-		String nombreMax = "";
+		Pais paisMax = null;
 		for (int i = 0; i < list2.size(); ++i) {
 			if (max < list1.get(i)) {
 				max = list1.get(i);
-				nombreMax = list2.get(i);
+				paisMax = list2.get(i);
 			}
 		}
-		return nombreMax;
+		return paisMax;
 	}
 	
-	public static String fabricaMayorVentas() {
+	public static Fabricante fabricaMayorVentas() {
 		return Vehiculo.fabricaMayorVentas();
 	}
 }
