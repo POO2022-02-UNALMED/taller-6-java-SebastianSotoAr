@@ -54,4 +54,8 @@ public class Fabricante {
 		}
 		return nombreMax;
 	}
+	
+	public static String fabricaMayorVentas() {
+		return Vehiculo.fabricaMayorVentas();
+	}
 }
