@@ -23,6 +23,5 @@ public class Automovil extends Vehiculo{
 
 	public static int getCantidad() {
 		return Cantidad;
-	}
-	
+	}	
 }

@@ -23,6 +23,5 @@ public class Camioneta extends Vehiculo{
 
 	public static int getCantidad() {
 		return Cantidad;
-	}
-	
+	}	
 }
